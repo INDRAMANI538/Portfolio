@@ -1,0 +1,326 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  #skills {
+    padding: 2rem 1rem;
+    background: #f4f4f9; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #skills h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline {
+    position: relative;
+    padding: 1rem 0;
+    list-style: none;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #1098ad; /* Line color */
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    margin-bottom: 2rem; /* Space between items */
+    padding: 1rem;
+  }
+  
+  .timeline-item:nth-child(odd) {
+    left: 50%;
+  }
+  
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+  
+  .timeline-item:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 0;
+    border: 15px solid transparent;
+    border-left-color: #fff;
+    border-right: 0;
+  }
+  
+  .timeline-item:nth-child(even)::after {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    border: 15px solid transparent;
+    border-right-color: #fff;
+    border-left: 0;
+  }
+  
+  .timeline-content {
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+  }
+  
+  .timeline-icon {
+    font-size: 2rem; /* Icon size */
+    color: #1098ad;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+  
+  .timeline-content h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .timeline-content p {
+    color: #555;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #6d53fe;
+  }
+  
+  /* Navigation Styling */
+  /* Header */
+  header {
+    background-color: #6d53fe;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10; /* Ensure the header is above other content */
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1200px; /* Optional: Max width for better centering */
+    margin: 0 auto; /* Center horizontally */
+  }
+  
+  nav ul li {
+    position: relative; /* Needed for pseudo-element positioning */
+  }
+  
+  .nav-bar {
+    color: white;
+    font-size: 18px;
+    padding: 0 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-bar:hover {
+    color: #ffdfdf;
+  }
+  
+  nav ul li:not(:last-child)::after {
+    content: "|";
+    color: white; /* Match the text color */
+    font-size: 1.5rem;
+    margin-left: 20px; /* Space between item and separator */
+  }
+  
+  /* Intro Section */
+  .intro {
+    background: linear-gradient(135deg, #6d53fe, #ab7dff);
+    color: white;
+    text-align: center;
+    padding: 100px 2rem; /* Increase padding at the top to touch the navbar */
+    margin-top: -10px; /* Slight negative margin to pull it up */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
+  }
+  
+  .intro h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .intro p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Img Section */
+  #img {
+    width: 100%;
+    max-height: 60vh;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  
+  #img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sections */
+  section {
+    padding: 2rem 5%;
+    background-color: #fff;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #6d53fe;
+    margin-bottom: 1.5rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  ul li::before {
+    content: "•";
+    color: #6d53fe;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  .project {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .project a {
+    font-weight: bold;
+    color: #6d53fe;
+  }
+  
+  .project a:hover {
+    color: #ff8e8e;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #6d53fe;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer .social-icons a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  footer .social-icons a:hover {
+    color: #ffdfdf;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .intro h1 {
+      font-size: 2.5rem;
+    }
+  
+    .intro p {
+      font-size: 1rem;
+    }
+  
+    header {
+      padding: 20px 0;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    section {
+      padding: 2rem 2rem;
+    }
+  }
+  
