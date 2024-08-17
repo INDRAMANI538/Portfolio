@@ -5,6 +5,7 @@
     padding: 0;
   }
   
+  
   body {
     font-family: "Poppins", sans-serif;
     background-color: #f4f4f9;
@@ -18,14 +19,60 @@
     width: 0;
     height: 0;
   }
+  #skills h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: wheat;
+    text-align: center;
+    
+  }
   #skills {
-    padding: 2rem 1rem;
-    background: #f4f4f9; /* Light background for contrast */
+    background: linear-gradient(135deg, #6d53fe, #ab7dff);;
+    padding: 20px 0; /* Reduce padding at the top to create a seamless connection */
+    text-align: center;
+    padding-top: 20px; /* Add padding to create a little space between sections */
+    }
+
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .skill {
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
   }
   
-  #skills h2 {
+  .skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skill i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #666;
+  }
+  
+  .skill h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .skill p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  #skills h1 {
     text-align: center;
     color: #333;
     margin-bottom: 2rem;
@@ -180,7 +227,9 @@
     padding: 100px 2rem; /* Increase padding at the top to touch the navbar */
     margin-top: -10px; /* Slight negative margin to pull it up */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
-  }
+    margin-bottom: -20px; /* Add negative margin to bottom of intro section */
+    }
+
   
   .intro h1 {
     font-size: 3rem;
