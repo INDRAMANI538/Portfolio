@@ -19,168 +19,170 @@
     width: 0;
     height: 0;
   }
+  
   #skills h1 {
-    font-size: 36px;
+    font-size: 4rem; /* Adjust size as needed */
     font-weight: bold;
-    margin-bottom: 10px;
-    color: wheat;
-    text-align: center;
-    
-  }
-  #skills {
-    background: linear-gradient(135deg, #6d53fe, #ab7dff);;
-    padding: 20px 0; /* Reduce padding at the top to create a seamless connection */
-    text-align: center;
-    padding-top: 20px; /* Add padding to create a little space between sections */
-    }
+    color: #ffffff;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textAnimate 4s linear infinite;
+}
 
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .skill {
-    margin: 20px;
-    padding: 20px;
-    width: 200px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .skill:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .skill i {
-    font-size: 30px;
-    margin-bottom: 10px;
-    color: #666;
-  }
-  
-  .skill h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .skill p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  #skills h1 {
+@keyframes textAnimate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes textAnimate {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Text Shadow for Glowing Effect */
+#skills h1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  z-index: -1;
+  filter: blur(20px); /* Increased blur for stronger glow */
+  opacity: 1; /* Full opacity for a brighter glow */
+}
+  /* Skills Section */
+#skills {
+  background: linear-gradient(135deg, #6d53fe, #ab7dff); /* Matching intro section */
+    padding: 50px 0;
     text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-  
-  .timeline {
     position: relative;
-    padding: 1rem 0;
-    list-style: none;
+    overflow: hidden;
+}
+
+#skills::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: glowing 3s infinite linear;
+}
+
+@keyframes glowing {
+  0% {
+      transform: rotate(0deg);
   }
-  
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: #1098ad; /* Line color */
-    transform: translateX(-50%);
+  100% {
+      transform: rotate(360deg);
   }
-  
-  .timeline-item {
-    position: relative;
-    width: 50%;
-    margin-bottom: 2rem; /* Space between items */
-    padding: 1rem;
+}
+
+#skills h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.skill {
+  position: relative;
+  width: 200px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 229, 255, 0.3));
+  animation: rotate 5s infinite linear;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
   }
-  
-  .timeline-item:nth-child(odd) {
-    left: 50%;
+  100% {
+      transform: rotate(360deg);
   }
-  
-  .timeline-item:nth-child(even) {
-    left: 0;
-  }
-  
-  .timeline-item:nth-child(odd)::after {
-    content: '';
-    position: absolute;
-    right: -15px;
-    top: 0;
-    border: 15px solid transparent;
-    border-left-color: #fff;
-    border-right: 0;
-  }
-  
-  .timeline-item:nth-child(even)::after {
-    content: '';
-    position: absolute;
-    left: -15px;
-    top: 0;
-    border: 15px solid transparent;
-    border-right-color: #fff;
-    border-left: 0;
-  }
-  
-  .timeline-content {
-    padding: 1rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    text-align: left;
-  }
-  
-  .timeline-icon {
-    font-size: 2rem; /* Icon size */
-    color: #1098ad;
-    display: inline-block;
-    margin-right: 0.5rem;
-  }
-  
-  .timeline-content h3 {
-    margin-top: 0;
-    color: #333;
-  }
-  
-  .timeline-content p {
-    color: #555;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  a:hover {
-    color: #6d53fe;
-  }
+}
+
+.skill i {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.skill h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.skill p {
+  font-size: 14px;
+  color: #b0b0b0;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+
   
   /* Navigation Styling */
 
 header {
-  background-color: #6d53fe; /* Gradient background */
-  background-image: linear-gradient(to right, #6d53fe, #ab7dff);
+  background-color: #6d53fe; /* Gradient background */to right, #6d53fe, #ab7dff
+  background-image: linear-gradient();
   padding: 10px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -278,23 +280,107 @@ nav ul li:nth-child(5) {
     background: linear-gradient(135deg, #6d53fe, #ab7dff);
     color: white;
     text-align: center;
-    padding: 100px 2rem; /* Increase padding at the top to touch the navbar */
-    margin-top: -10px; /* Slight negative margin to pull it up */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
-    margin-bottom: -20px; /* Add negative margin to bottom of intro section */
+    padding: 100px 2rem;
+    margin-top: -10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: -20px;
+    position: relative;
+    overflow: hidden; /* To handle pseudo-elements */
+  }
+  
+  .intro::before, .intro::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -100%;
+    left: -100%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
+    animation: rotate 6s linear infinite;
+  }
+  
+  .intro::after {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
+    animation-duration: 10s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
     }
-
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   
   .intro h1 {
     font-size: 3rem;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
+    background: linear-gradient(45deg, #fff, #ffdfdf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textAnimate 4s linear infinite;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6d53fe, 0 0 40px #ab7dff;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ffdfdf, 0 0 40px #6d53fe, 0 0 50px #ab7dff;
+    }
   }
   
   .intro p {
     font-size: 1.5rem;
     margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 2s ease-in-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Optional: Add a futuristic border animation */
+  .intro {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #6d53fe, #ab7dff, #ffdfdf, #6d53fe);
+    z-index: -1;
+    background-size: 300%;
+    animation: gradient-border 5s linear infinite;
+  }
+  
+  @keyframes gradient-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
   
   /* Keyframes for Animations */
@@ -365,156 +451,153 @@ nav ul li:nth-child(5) {
     margin-left: -1em;
   }
   
-  /* Project Section */
-
+/* Project Section */
 #projects {
-  background-color: #6d53fe; /* Gradient background */
-  background-image: linear-gradient(to right, #6d53fe, #ab7dff);
-  padding: 50px 0; /* Add some padding to create a gap between sections */
+  background: linear-gradient(135deg, #6d53fe, #ab7dff);
+  padding: 60px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
+#projects::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(150px);
+  animation: float 10s infinite ease-in-out;
+}
+
+#projects::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(150px);
+  animation: float 10s infinite ease-in-out;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% {
+      transform: translate(0, 0);
+  }
+  50% {
+      transform: translate(20px, 20px);
+  }
+}
+
+/* Project Card */
 .project {
-  display: flex; /* Make the project container a flexbox */
-  flex-direction: column; /* Stack the project elements vertically */
-  align-items: center; /* Center the project elements horizontally */
-  padding: 20px; /* Add some padding to create a gap between projects */
-  border: 1px solid #fff; /* Add a subtle border */
-  border-radius: 10px; /* Add a subtle border radius */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  transition: box-shadow 0.3s ease; /* Add a transition effect to the shadow */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  transition: transform 0.5s, box-shadow 0.5s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+.project:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .project:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase the shadow on hover */
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
 }
 
 .project-icon {
-  font-size: 40px; /* Increase the icon size */
-  color: #fff; /* Use a white color for the icon */
-  margin-bottom: 10px; /* Add some space between the icon and the title */
+  font-size: 50px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .project-title {
-  font-size: 24px; /* Increase the title size */
-  font-weight: bold; /* Make the title bold */
-  color: #fff; /* Use a white color for the title */
-  margin-bottom: 10px; /* Add some space between the title and the description */
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .project-description {
-  font-size: 16px; /* Increase the description size */
-  color: rgba(255, 255, 255, 0.8); /* Use a light white color for the description */
-  margin-bottom: 20px; /* Add some space between the description and the links */
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
 }
 
 .project-links {
-  display: flex; /* Make the links container a flexbox */
-  justify-content: space-between; /* Distribute the links evenly */
-  align-items: center; /* Center the links horizontally */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .project-link {
-  font-size: 16px; /* Increase the link size */
-  color: #fff; /* Use a white color for the links */
-  margin-right: 20px; /* Add some space between the links */
-  transition: color 0.3s ease; /* Add a transition effect to the link color */
+  font-size: 16px;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .project-link:hover {
-  color: #ffdfdf; /* Change the link color on hover */
+  color: #ffdfdf;
 }
 
 /* Add some animations to the project section */
 .project {
-  animation: fadeInUp 0.5s ease-in-out;
+  animation: fadeInUp 0.8s ease-in-out;
 }
 
 .project:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.project:nth-child(3) {
   animation-delay: 0.2s;
 }
 
+.project:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Keyframes for Animation */
 @keyframes fadeInUp {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
-/* Add vendor prefixes for older browsers */
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-
-@-moz-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(0);
-  }
-}
-
-@-o-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -o-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -o-transform: translateY(0);
-  }
-}
-
-/* Add vendor prefixes for older browsers */
-@-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-
-@-moz-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(0);
-  }
-}
-
-@-o-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -o-transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    -o-transform: translateY(0);
-  }
-}
   
   /* Footer */
   footer {
