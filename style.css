@@ -177,47 +177,101 @@
   }
   
   /* Navigation Styling */
-  /* Header */
-  header {
-    background-color: #6d53fe;
-    padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 10; /* Ensure the header is above other content */
+
+header {
+  background-color: #6d53fe; /* Gradient background */
+  background-image: linear-gradient(to right, #6d53fe, #ab7dff);
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10; /* Ensure the header is above other content */
+  border-bottom: 2px solid #fff; /* Add a subtle border */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 1200px; /* Optional: Max width for better centering */
+  margin: 0 auto; /* Center horizontally */
+}
+
+nav ul li {
+  position: relative; /* Needed for pseudo-element positioning */
+  margin-right: 20px; /* Add some space between items */
+}
+
+.nav-bar {
+  color: #fff; /* White text color */
+  font-size: 18px;
+  padding: 10px 20px; /* Add some padding for a better look */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 10px; /* Add a subtle border radius */
+  background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background color */
+}
+
+.nav-bar:hover {
+  color: #ffdfdf; /* Hover text color */
+  background-color: rgba(255, 255, 255, 0.3); /* Hover background color */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add a subtle hover effect */
+}
+
+nav ul li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 15px solid transparent;
+  border-left-color: #fff;
+  border-right: 0;
+}
+
+nav ul li:last-child::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 15px solid transparent;
+  border-right-color: #fff;
+  border-left: 0;
+}
+
+/* Add some animations to the navbar */
+nav ul li {
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+nav ul li:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+nav ul li:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+nav ul li:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+nav ul li:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  nav ul {
-    display: flex;
-    justify-content: space-between; /* Distribute items evenly */
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: 1200px; /* Optional: Max width for better centering */
-    margin: 0 auto; /* Center horizontally */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  nav ul li {
-    position: relative; /* Needed for pseudo-element positioning */
-  }
-  
-  .nav-bar {
-    color: white;
-    font-size: 18px;
-    padding: 0 20px;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-bar:hover {
-    color: #ffdfdf;
-  }
-  
-  nav ul li:not(:last-child)::after {
-    content: "|";
-    color: white; /* Match the text color */
-    font-size: 1.5rem;
-    margin-left: 20px; /* Space between item and separator */
-  }
+}
   
   /* Intro Section */
   .intro {
@@ -292,16 +346,17 @@
   }
   
   h2 {
-    font-size: 2rem;
-    color: #6d53fe;
+    font-size: 3rem;
+    color: black;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
   
   ul {
     list-style: none;
     padding-left: 20px;
   }
-  
+
   ul li::before {
     content: "•";
     color: #6d53fe;
@@ -310,23 +365,156 @@
     margin-left: -1em;
   }
   
-  .project {
-    margin-bottom: 1.5rem;
+  /* Project Section */
+
+#projects {
+  background-color: #6d53fe; /* Gradient background */
+  background-image: linear-gradient(to right, #6d53fe, #ab7dff);
+  padding: 50px 0; /* Add some padding to create a gap between sections */
+}
+
+.project {
+  display: flex; /* Make the project container a flexbox */
+  flex-direction: column; /* Stack the project elements vertically */
+  align-items: center; /* Center the project elements horizontally */
+  padding: 20px; /* Add some padding to create a gap between projects */
+  border: 1px solid #fff; /* Add a subtle border */
+  border-radius: 10px; /* Add a subtle border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: box-shadow 0.3s ease; /* Add a transition effect to the shadow */
+}
+
+.project:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increase the shadow on hover */
+}
+
+.project-icon {
+  font-size: 40px; /* Increase the icon size */
+  color: #fff; /* Use a white color for the icon */
+  margin-bottom: 10px; /* Add some space between the icon and the title */
+}
+
+.project-title {
+  font-size: 24px; /* Increase the title size */
+  font-weight: bold; /* Make the title bold */
+  color: #fff; /* Use a white color for the title */
+  margin-bottom: 10px; /* Add some space between the title and the description */
+}
+
+.project-description {
+  font-size: 16px; /* Increase the description size */
+  color: rgba(255, 255, 255, 0.8); /* Use a light white color for the description */
+  margin-bottom: 20px; /* Add some space between the description and the links */
+}
+
+.project-links {
+  display: flex; /* Make the links container a flexbox */
+  justify-content: space-between; /* Distribute the links evenly */
+  align-items: center; /* Center the links horizontally */
+}
+
+.project-link {
+  font-size: 16px; /* Increase the link size */
+  color: #fff; /* Use a white color for the links */
+  margin-right: 20px; /* Add some space between the links */
+  transition: color 0.3s ease; /* Add a transition effect to the link color */
+}
+
+.project-link:hover {
+  color: #ffdfdf; /* Change the link color on hover */
+}
+
+/* Add some animations to the project section */
+.project {
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+.project:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.project:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .project h3 {
-    font-size: 1.5rem;
-    color: #333;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .project a {
-    font-weight: bold;
-    color: #6d53fe;
+}
+
+/* Add vendor prefixes for older browsers */
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
   }
-  
-  .project a:hover {
-    color: #ff8e8e;
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
   }
+}
+
+@-moz-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+
+/* Add vendor prefixes for older browsers */
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
   
   /* Footer */
   footer {
