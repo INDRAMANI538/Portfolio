@@ -52,6 +52,111 @@
         background-position: 100% 50%;
     }
 }
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg,#6d53fe, #ab7dff);
+  padding: 60px 0;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Title */
+#contact h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Paragraph */
+#contact p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-bottom: 30px;
+}
+
+.social-icons a {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1);
+  color: #ab7dff;
+}
+
+/* Contact Form Container */
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+/* Inquiry Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.contact-form button {
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #ab7dff;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #6d53fe;
+  transform: scale(1.05);
+}
 
 /* Text Shadow for Glowing Effect */
 #skills h1::after {
