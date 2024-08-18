@@ -597,6 +597,117 @@ nav ul li:nth-child(5) {
       transform: translateY(0);
   }
 }
+/* Education Section */
+/* Education Section */
+#education {
+  background: linear-gradient(135deg, #3a2a8e, #ab7dff);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+/* Glowing Gradient Borders */
+#education::before, #education::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: linear-gradient(45deg, #ffffff, #ffdfdf, #6d53fe, #ab7dff);
+  animation: rotate 8s linear infinite;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+#education::after {
+  animation-direction: reverse;
+}
+
+/* Title Styling */
+#education h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #ffffff, #ffdfdf, #6d53fe, #ab7dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textAnimate 3s linear infinite;
+}
+
+/* Education Items */
+.education-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+
+.education-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+}
+
+/* Icon and Title */
+.education-item h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffdfdf, #6d53fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textAnimate 5s linear infinite;
+}
+
+/* Description */
+.education-item p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
+
+/* Education Icons */
+.education-icon {
+  font-size: 60px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Animation Keyframes */
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes textAnimate {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
+
+
 
   
   /* Footer */
