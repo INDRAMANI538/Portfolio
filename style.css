@@ -107,56 +107,63 @@
 }
 
 /* Inquiry Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form label {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.2);
+.contact-form-container {
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e); /* Darker background to make glow stand out */
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
   color: #ffffff;
-  font-size: 1rem;
-  outline: none;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+.contact-form-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 150, 250, 0.2), transparent);
+  animation: rotate 6s linear infinite;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.contact-form button {
-  padding: 15px;
+.contact-form-container h3 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: -webkit-linear-gradient(45deg, #00d4ff, #ffffff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.7);
+}
+
+iframe {
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
-  background: #ab7dff;
-  color: #ffffff;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 150, 250, 0.5);
+  transition: box-shadow 0.3s ease;
 }
 
-.contact-form button:hover {
-  background: #6d53fe;
-  transform: scale(1.05);
+iframe:hover {
+  box-shadow: 0 5px 30px rgba(0, 212, 255, 0.8);
 }
+
+@media (max-width: 768px) {
+  .contact-form-container h3 {
+      font-size: 1.8rem;
+  }
+}
+
+ 
 
 /* Text Shadow for Glowing Effect */
 #skills h1::after {
