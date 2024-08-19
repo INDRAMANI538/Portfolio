@@ -65,20 +65,40 @@
 
 
 /* Sidebar Toggle Button */
+/* Sidebar Toggle Button */
 .sidebar-toggle {
   position: absolute;
   top: 5px; /* Move higher */
-  right: 97%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  right: 97%; /* Adjust for better visibility */
   font-size: 28px;
   color: #ffffff;
   cursor: pointer;
   z-index: 1002;
   transition: color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for color and shadow */
+
 }
 
 .sidebar-toggle:hover {
   color: #00d4ff;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  /* Adjust the positioning of the sidebar toggle button for smaller screens */
+  .sidebar-toggle {
+      right: 10px; /* Adjust as needed */
+      font-size: 24px; /* Adjust size for smaller screens */
+  }
+  
+  /* Ensure sidebar is styled appropriately for mobile */
+  .sidebar {
+      width: 100%; /* Full width on mobile */
+      left: -100%; /* Hidden off-screen */
+  }
+  
+  .sidebar.open {
+      left: 0; /* Show sidebar when open */
+  }
 }
 
 /* Sidebar Styling */
