@@ -11,3 +11,9 @@ closeBtn.addEventListener('click', () => {
     sidebar.classList.remove('open');
     sidebarToggle.classList.remove('hidden');
 });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('hidden');
+    }
+});
