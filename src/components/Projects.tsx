@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
       image: 'Screenshot 2025-05-09 070051.png',
       tags: ['React', 'D3.js', 'Node.js', 'MongoDB'],
       github: 'https://github.com',
-      demo: 'https://example.com'
+      demo: 'https://portfolio-lihfwlxlo-indramani538s-projects.vercel.app/'
     }
   ];
 
