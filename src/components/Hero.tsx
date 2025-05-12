@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-10 animate-bounce z-10">
         <a 
           href="#about" 
-          className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+          className="rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           aria-label="Scroll to about section"
         >
           <ArrowDown className="text-white" />
