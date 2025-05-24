@@ -53,6 +53,16 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <a
+                href="#education"
+                className={`${
+                  scrolled || darkMode ? 'text-black' : 'text-white'
+                } hover:text-white transition-colors`}
+              >
+                Education
+              </a>
+            </li>
+            <li>
+              <a
                 href="#skills"
                 className={`${
                   scrolled || darkMode ? 'text-black' : 'text-white'
