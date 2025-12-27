@@ -8,6 +8,9 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
+import Certificates from './components/Certificates';
+
+
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
       <About />
       <Education /> {/* ✅ Add Education section here */}
       <Skills />
+      <Certificates/>
       <Projects />
       <Contact />
       <Footer />
