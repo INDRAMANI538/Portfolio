@@ -136,11 +136,3 @@ a::after {
   transition: width 0.3s ease;
 }
 
-a:hover::after {
-  width: 100%;
-}
-
-/* disable underline on buttons */
-.no-underline::after {
-  display: none;
-}
