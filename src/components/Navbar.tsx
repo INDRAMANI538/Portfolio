@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -19,10 +19,13 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300
+      className={`
+        fixed top-0 w-full z-50
+        transition-all duration-300
         ${scrolled
-          ? 'bg-white dark:bg-[#020617] shadow-sm py-4'
-          : 'bg-transparent py-6'}
+          ? 'bg-[#020617]/90 backdrop-blur-md py-3'
+          : 'bg-transparent py-5'}
+        border-b border-transparent
       `}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -30,35 +33,24 @@ const Navbar: React.FC = () => {
         {/* LOGO */}
         <a
           href="#home"
-          className={`
-            text-xl font-semibold tracking-tight transition-colors
-            ${darkMode
-              ? 'text-white'
-              : scrolled
-                ? 'text-black'
-                : 'text-white'}
-          `}
+          className="text-xl font-semibold tracking-tight text-white no-underline"
         >
           PORTFOLIO
         </a>
 
         <div className="flex items-center gap-8">
 
-          {/* LINKS */}
-          <ul className="hidden md:flex gap-8">
-            {['about', 'education', 'skills', 'projects', 'contact'].map(item => (
+          {/* NAV LINKS */}
+          <ul className="hidden md:flex items-center gap-8">
+            {['about', 'education', 'skills', 'certificates', 'projects', 'contact'].map(item => (
               <li key={item}>
                 <a
                   href={`#${item}`}
-                  className={`
-                    transition-colors
-                    ${darkMode
-                      ? 'text-white'
-                      : scrolled
-                        ? 'text-black'
-                        : 'text-white'}
-                    hover:text-blue-400
-                  `}
+                  className="
+                    text-white/80 hover:text-white
+                    transition-colors duration-200
+                    no-underline
+                  "
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
@@ -66,16 +58,20 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          {/* TOGGLE */}
+          {/* DARK MODE TOGGLE */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:scale-105 transition"
+            className="
+              p-2 rounded-full
+              bg-white/10 hover:bg-white/20
+              transition-all duration-300
+            "
             aria-label="Toggle dark mode"
           >
             {darkMode ? (
-              <Sun size={20} className="text-yellow-400" />
+              <Sun size={18} className="text-yellow-400" />
             ) : (
-              <Moon size={20} className="text-gray-700" />
+              <Moon size={18} className="text-gray-300" />
             )}
           </button>
 

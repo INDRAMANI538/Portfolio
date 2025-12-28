@@ -101,7 +101,6 @@ const Certificates = () => {
           Certificates & Achievements
         </h2>
 
-        {/* GRID */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {visibleCertificates.map((cert, index) => (
             <div
@@ -151,7 +150,6 @@ const Certificates = () => {
           </div>
         )}
 
-        {/* LEARNING MODAL */}
         {activeLearning && (
           <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm
                           flex items-center justify-center px-4">
@@ -169,8 +167,11 @@ const Certificates = () => {
                 </button>
               </div>
 
-              <pre className="whitespace-pre-wrap text-sm leading-relaxed
-                              font-mono text-blue-300">
+              {/* 🔥 ONLY FONT SIZE CHANGED HERE */}
+              <pre
+                className="whitespace-pre-wrap text-base leading-relaxed
+                           font-mono text-blue-300"
+              >
                 {activeLearning.learning}
               </pre>
             </div>
