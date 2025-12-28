@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Moon, Sun } from 'lucide-react';
+import React, { useEffect } from 'react';
 
 const Navbar: React.FC = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
-  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [scrolled, setScrolled] = React.useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,9 +11,10 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 🔒 Force dark mode always
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode);
-  }, [darkMode]);
+    document.documentElement.classList.add('dark');
+  }, []);
 
   return (
     <nav
@@ -58,23 +57,6 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
-          {/* DARK MODE TOGGLE */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="
-              p-2 rounded-full
-              bg-white/10 hover:bg-white/20
-              transition-all duration-300
-            "
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? (
-              <Sun size={18} className="text-yellow-400" />
-            ) : (
-              <Moon size={18} className="text-gray-300" />
-            )}
-          </button>
-
         </div>
       </div>
     </nav>
@@ -82,3 +64,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+  
