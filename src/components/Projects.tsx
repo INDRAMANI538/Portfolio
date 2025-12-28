@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
       image: 'image.png',
       tags: ['React', 'Redux', 'Tailwind CSS', 'Node.js'],
       github: 'https://github.com/INDRAMANI538/Chatingapp',
-      demo: 'https://chatingapp-production.up.railway.app/'
+      demo: 'https://chatingapp-nd9d.onrender.com'
     },
     {
       id: 2,
