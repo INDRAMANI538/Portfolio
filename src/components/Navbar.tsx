@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
         {/* LOGO */}
         <a
           href="#home"
-          className="text-xl font-semibold tracking-tight text-white no-underline"
+          className="text-2xl font-semibold tracking-tight text-white no-underline"
         >
           PORTFOLIO
         </a>
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                 <a
                   href={`#${item}`}
                   className="
-                    text-white/80 hover:text-white
+                    text-lg text-white/80 hover:text-white
                     transition-colors duration-200
                     no-underline
                   "
@@ -64,4 +64,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-  
