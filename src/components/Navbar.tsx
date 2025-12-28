@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
 
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = React.useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,10 +13,9 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 🔒 Force dark mode always
   useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+    document.documentElement.classList.toggle('dark', darkMode);
+  }, [darkMode]);
 
   return (
     <nav
@@ -32,20 +33,21 @@ const Navbar: React.FC = () => {
         {/* LOGO */}
         <a
           href="#home"
-          className="text-xl font-semibold tracking-tight text-white no-underline"
+          className="text-2xl font-semibold tracking-tight text-white no-underline"
         >
           PORTFOLIO
         </a>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-10">
 
           {/* NAV LINKS */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {['about', 'education', 'skills', 'certificates', 'projects', 'contact'].map(item => (
               <li key={item}>
                 <a
                   href={`#${item}`}
                   className="
+                    text-lg font-medium
                     text-white/80 hover:text-white
                     transition-colors duration-200
                     no-underline
@@ -57,6 +59,23 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
 
+          {/* DARK MODE TOGGLE (UNCHANGED) */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="
+              p-2 rounded-full
+              bg-white/10 hover:bg-white/20
+              transition-all duration-300
+            "
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? (
+              <Sun size={18} className="text-yellow-400" />
+            ) : (
+              <Moon size={18} className="text-gray-300" />
+            )}
+          </button>
+
         </div>
       </div>
     </nav>
@@ -64,4 +83,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-  
