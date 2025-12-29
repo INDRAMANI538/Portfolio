@@ -7,11 +7,15 @@
 </p>
 <p align="center"> A modern, structured, and responsive portfolio website built to represent my professional identity on the web.<br/> Designed with performance, accessibility, and clean UI principles in mind. </p>
 
+
+
 🌐 Live Access
 
-Portfolio Website: https://indramaniportfolio.netlify.app
+🔺Portfolio Website: https://indramaniportfolio.netlify.app
 
-GitHub Repository: https://github.com/INDRAMANI538/Portfolio
+🔺GitHub Repository: https://github.com/INDRAMANI538/Portfolio
+
+
 
 🎯 Purpose & Vision
 
@@ -19,38 +23,31 @@ This portfolio serves as a personal developer dashboard, not just a static websi
 
 It is built to:
 
-Showcase real-world frontend skills
+🔺Showcase real-world frontend skills
 
-Present projects in a clear and structured manner
+🔺Present projects in a clear and structured manner
 
-Maintain a professional online presence
+🔺Maintain a professional online presence
 
-Provide a smooth experience across all devices
+🔺Provide a smooth experience across all devices
 
-The focus is on clarity, usability, and visual balance.
+🔺The focus is on clarity, usability, and visual balance.
+
+
 
 ✨ Key Features
 
-Fully responsive design (mobile-first)
+🔺Fully responsive design (mobile-first)
 
-Clean and modern UI layout
+🔺Clean and modern UI layout
 
-Dark-themed aesthetic for better readability
+🔺Dark-themed aesthetic for better readability
 
-Smooth animations and transitions
+🔺Smooth animations and transitions
 
-SEO-friendly semantic HTML
+🔺SEO-friendly semantic HTML
 
-Optimized performance and assets
+🔺Optimized performance and assets
 
-Simple, maintainable codebase
-
-🛠️ Tech Stack
-Category	Technologies
-Structure	HTML5
-Styling	Tailwind CSS
-Logic	JavaScript (ES6+)
-Icons	Font Awesome / Heroicons
-Fonts	Google Fonts
-Hosting	GitHub Pages / Netlify
+🔺Simple, maintainable codebase
 
