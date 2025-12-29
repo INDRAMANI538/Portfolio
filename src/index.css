@@ -15,13 +15,23 @@
   html {
     scroll-behavior: smooth;
     font-size: 100%;
+
+    /* 🔒 PREVENT HORIZONTAL SWIPE / DRIFT */
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
   }
 
   body {
     @apply bg-[#0b0f19] text-gray-200;
     margin: 0;
     min-width: 320px;
+
+    /* 🔒 LOCK CONTENT TO CENTER (NO LEFT-RIGHT MOVE) */
     overflow-x: hidden;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
+
     font-family: 'Inter', -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
       'Open Sans', 'Helvetica Neue', sans-serif;
@@ -124,7 +134,6 @@ a {
   white-space: nowrap;
 }
 
-/* underline only where needed */
 a::after {
   content: '';
   position: absolute;
@@ -135,4 +144,3 @@ a::after {
   background-color: currentColor;
   transition: width 0.3s ease;
 }
-
