@@ -1,53 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Skill {
   name: string;
-  level: number; // 0-100
-  color: string;
+  level: number; // 0–100
+  gradient: string;
 }
 
+const skills: Skill[] = [
+  { name: 'HTML & CSS', level: 90, gradient: 'from-blue-400 to-blue-600' },
+  { name: 'JavaScript', level: 85, gradient: 'from-yellow-400 to-yellow-600' },
+  { name: 'React', level: 88, gradient: 'from-cyan-400 to-cyan-600' },
+  { name: 'TypeScript', level: 80, gradient: 'from-blue-500 to-indigo-600' },
+  { name: 'UI / UX Design', level: 75, gradient: 'from-purple-400 to-pink-600' },
+  { name: 'Node.js', level: 70, gradient: 'from-green-400 to-emerald-600' },
+];
+
 const Skills: React.FC = () => {
-  const skills: Skill[] = [
-    { name: 'HTML & CSS', level: 90, color: 'bg-blue-500' },
-    { name: 'JavaScript', level: 85, color: 'bg-yellow-500' },
-    { name: 'React', level: 88, color: 'bg-cyan-500' },
-    { name: 'TypeScript', level: 80, color: 'bg-blue-600' },
-    { name: 'UI/UX Design', level: 75, color: 'bg-purple-500' },
-    { name: 'Node.js', level: 70, color: 'bg-green-600' },
-  ];
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    // trigger animation AFTER mount
+    const timer = setTimeout(() => setLoaded(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
+    <section
+      id="skills"
+      className="py-24 px-4 bg-[#0b0f19] text-gray-200"
+    >
+      <div className="container mx-auto max-w-5xl">
+
+        {/* HEADING */}
+        <h2 className="text-4xl font-semibold text-center mb-16">
           Skills & Expertise
         </h2>
-        
-        <div className="grid gap-y-8">
+
+        {/* GLASS CARD */}
+        <div className="grid gap-10">
           {skills.map((skill, index) => (
-            <div key={index} className="group">
-              <div className="flex justify-between mb-2">
-                <span className="text-gray-800 dark:text-gray-200 font-medium">{skill.name}</span>
-                <span className="text-gray-600 dark:text-gray-400">{skill.level}%</span>
+            <div
+              key={index}
+              className="
+                relative overflow-hidden
+                bg-white/5 backdrop-blur-xl
+                border border-white/10
+                rounded-2xl p-6
+                shadow-[0_0_40px_rgba(0,0,0,0.4)]
+              "
+            >
+              {/* TITLE */}
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-lg font-medium">
+                  {skill.name}
+                </span>
+                <span className="text-sm text-gray-400">
+                  {skill.level}%
+                </span>
               </div>
-              <div className="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                <div 
-                  className={`h-full ${skill.color} rounded-full transition-all duration-1000 ease-out group-hover:brightness-110`}
-                  style={{ 
-                    width: '0%', 
-                    animation: `progress-${index} 1.5s ease-out forwards 0.3s` 
+
+              {/* BAR BACKGROUND */}
+              <div className="w-full h-3 rounded-full bg-white/10 overflow-hidden">
+                {/* BAR FILL */}
+                <div
+                  className={`
+                    h-full rounded-full
+                    bg-gradient-to-r ${skill.gradient}
+                    transition-all duration-1000 ease-out
+                  `}
+                  style={{
+                    width: loaded ? `${skill.level}%` : '0%',
                   }}
-                ></div>
+                />
               </div>
-              <style jsx>{`
-                @keyframes progress-${index} {
-                  0% { width: 0%; }
-                  100% { width: ${skill.level}%; }
-                }
-              `}</style>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

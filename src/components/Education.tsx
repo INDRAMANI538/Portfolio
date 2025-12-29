@@ -16,19 +16,19 @@ const educationTimeline = [
   {
     title: 'B.Tech in Computer Science (Planned)',
     date: 'Post-Diploma',
-    board: 'Specializing in Software Development & AI',
+    board: 'Software Development & AI Focus',
   },
 ];
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.3,
-      duration: 0.8,
-      ease: 'easeInOut',
+      delay: i * 0.25,
+      duration: 0.7,
+      ease: 'easeOut',
     },
   }),
 };
@@ -37,18 +37,21 @@ const Education: React.FC = () => {
   return (
     <section
       id="education"
-      className="relative py-24 px-6 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
+      className="relative bg-[#0b0f19] text-gray-200 py-28 overflow-hidden"
     >
-      {/* Scroll Progress Bar */}
-      {/* <div className="sticky top-0 h-1 w-full bg-gradient-to-r from-blue-500 to-purple-500 animate-pulse z-50" /> */}
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
 
-      <div className="container mx-auto max-w-3xl relative z-10">
-        <h2 className="text-4xl font-bold text-center mb-20 text-gray-900 dark:text-white">
-          🎓 My Education Journey
+        {/* HEADING */}
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-20">
+          Education Journey
         </h2>
 
-        {/* Removed border-l-4 (vertical line) */}
-        <div className="relative pl-6 space-y-16">
+        {/* TIMELINE */}
+        <div className="relative space-y-16">
+
+          {/* Vertical Line */}
+          <div className="absolute left-3 top-0 h-full w-px bg-white/10" />
+
           {educationTimeline.map((edu, index) => (
             <motion.div
               key={index}
@@ -57,28 +60,45 @@ const Education: React.FC = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={itemVariants}
-              className="relative"
+              className="relative pl-12"
             >
-              {/* Static timeline dot without animation */}
-              <span className="absolute -left-3 w-6 h-6 bg-blue-500 dark:bg-blue-700 border-4 border-white dark:border-gray-900 rounded-full shadow-lg" />
+              {/* DOT */}
+              <span className="absolute left-[6px] top-4 w-3 h-3 rounded-full bg-blue-500 shadow-md" />
 
-              <Tilt glareEnable={true} glareMaxOpacity={0.2} scale={1.02} tiltMaxAngleX={10} tiltMaxAngleY={10}>
-                <div className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+              <Tilt
+                tiltMaxAngleX={8}
+                tiltMaxAngleY={8}
+                scale={1.01}
+                glareEnable={false}
+              >
+                <div
+                  className="
+                    bg-[#020617]/80 backdrop-blur-md
+                    border border-white/10
+                    rounded-2xl p-6
+                    transition-transform duration-300
+                    hover:scale-[1.02]
+                  "
+                >
+                  <h3 className="text-xl font-medium mb-1">
                     {edu.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mt-1 text-sm">
+
+                  <p className="text-sm text-gray-400 mb-2">
                     {edu.date}
                   </p>
-                  <p className="text-gray-700 dark:text-gray-400 mt-2">
+
+                  <p className="text-base text-gray-300">
                     {edu.board}
                   </p>
-                  <div className="mt-4 flex gap-2">
-                    <span className="text-sm px-3 py-1 bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-100 rounded-full shadow">
-                      📅 {edu.date}
+
+                  {/* TAGS */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="text-xs px-3 py-1 rounded-full bg-white/10">
+                      {edu.date}
                     </span>
-                    <span className="text-sm px-3 py-1 bg-purple-100 dark:bg-purple-800 text-purple-700 dark:text-purple-100 rounded-full shadow">
-                      🌟 {edu.board}
+                    <span className="text-xs px-3 py-1 rounded-full bg-white/10">
+                      {edu.board}
                     </span>
                   </div>
                 </div>
@@ -87,6 +107,9 @@ const Education: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* SUBTLE BACKGROUND GLOW */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent pointer-events-none" />
     </section>
   );
 };
