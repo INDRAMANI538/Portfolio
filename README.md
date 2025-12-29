@@ -1,51 +1,56 @@
-<p align="center"> <img src="https://img.shields.io/badge/Portfolio-Live-0EA5E9?style=flat-square" /> <img src="https://img.shields.io/badge/Role-Frontend%20Developer-22C55E?style=flat-square" /> <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" /> </p>
-🧩 Developer Dashboard
-<table width="100%"> <tr> <td width="50%" valign="top">
-👤 About Me
-Name       : Indramani Singh
-Role       : Frontend Developer
-Focus      : Clean UI & UX
-Experience : Real-world projects
+<p align="center"> <b>Frontend Developer • Clean UI • Professional Dashboard</b> </p> <p align="center"> <img src="https://img.shields.io/badge/Portfolio-Live-0EA5E9?style=flat-square" /> <img src="https://img.shields.io/badge/Role-Frontend%20Developer-22C55E?style=flat-square" /> <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" /> </p>
+Overview
 
+A modern, responsive portfolio website created to represent my professional identity as a frontend developer.
+The focus is on clean design, accessibility, performance, and clear presentation of skills and projects.
 
-I build modern, responsive interfaces with a focus on clarity, performance, and usability.
-My work blends clean design with practical implementation.
+Dashboard Layout
+Home        → Introduction & call-to-action
+About       → Professional summary
+Skills      → Technical expertise
+Projects    → Selected work
+Contact     → Communication
 
-</td> <td width="50%" valign="top">
-🎯 Portfolio Purpose
-• Professional web identity
-• Project showcase
-• Skill representation
-• Recruiter-first design
+About
 
+Name: Indramani Singh
+Role: Frontend Developer
 
-This portfolio acts as a single source of truth for my work, skills, and growth as a developer.
+I build user-focused web interfaces with clean layouts and maintainable code.
+My work emphasizes clarity, usability, and modern frontend best practices.
 
-</td> </tr> </table>
-📦 Core Sections
-<table width="100%"> <tr> <td width="33%" valign="top">
-🏠 Home
-• Strong introduction
-• Clear CTA
-• Immediate impact
+Skills
 
-</td> <td width="33%" valign="top">
-🧠 Skills
-• HTML5
-• Tailwind CSS
-• JavaScript
-• Git & GitHub
+HTML5
 
-</td> <td width="33%" valign="top">
-📁 Projects
-• Real-world apps
-• Clean code
-• Practical use-cases
+Tailwind CSS
 
-</td> </tr> </table>
-🛠️ Technology Stack
-<table width="100%"> <tr> <td width="25%"><b>Markup</b><br/>HTML5</td> <td width="25%"><b>Styling</b><br/>Tailwind CSS</td> <td width="25%"><b>Logic</b><br/>JavaScript</td> <td width="25%"><b>Hosting</b><br/>GitHub Pages</td> </tr> </table>
-🧱 Project Structure
+JavaScript (ES6+)
+
+Git & GitHub
+
+Responsive Design
+
+Projects
+
+A curated collection of projects demonstrating:
+
+Practical frontend implementations
+
+Clean UI and structured code
+
+Real-world problem solving
+
+Each project includes a description, technology stack, and source code.
+
+Technology Stack
+Area	Tools
+Structure	HTML5
+Styling	Tailwind CSS
+Logic	JavaScript
+Icons	Font Awesome / Heroicons
+Hosting	GitHub Pages
+Project Structure
 Portfolio/
 │
 ├── assets/
@@ -57,40 +62,14 @@ Portfolio/
 ├── index.html
 └── README.md
 
-⚡ Quality & Performance
-<table width="100%"> <tr> <td width="50%">
-🚀 Performance
-• Optimized assets
-• Minimal dependencies
-• Fast load times
+Performance & Quality
 
-</td> <td width="50%">
-🎨 Design
-• Dark-first UI
-• Clean typography
-• Balanced spacing
+Optimized assets for fast loading
 
-</td> </tr> </table>
-🚀 Local Setup
-git clone https://github.com/INDRAMANI538/Portfolio.git
-cd Portfolio
+Mobile-first responsive layout
 
+Minimal dependencies
 
-(Open index.html or use Live Server)
+Accessible color contrast
 
-🔮 Roadmap
-<table width="100%"> <tr> <td width="33%">📌 Blog section</td> <td width="33%">📌 Project filtering</td> <td width="33%">📌 Backend contact form</td> </tr> </table>
-👨‍💻 Author
-<table width="100%"> <tr> <td width="50%">
-
-Indramani Singh
-Frontend Developer
-
-GitHub: https://github.com/INDRAMANI538
-
-</td> <td width="50%">
-
-Portfolio: (add live link)
-Email: (add email)
-
-</td> </tr> </table>
+Clean and readable typography
