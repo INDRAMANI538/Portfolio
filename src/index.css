@@ -2,9 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   GLOBAL RESPONSIVE RESET
-   ========================= */
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --bg-primary: #050816;
+  --bg-secondary: #0a0d1c;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --accent-violet: #7c3aed;
+  --accent-cyan: #06b6d4;
+  --accent-pink: #ec4899;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --glow-violet: rgba(124, 58, 237, 0.4);
+  --glow-cyan: rgba(6, 182, 212, 0.4);
+}
+
+/* ============================================================
+   BASE RESET & GLOBAL
+   ============================================================ */
 @layer base {
   *,
   *::before,
@@ -14,95 +31,262 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: 100%;
-
-    /* 🔒 PREVENT HORIZONTAL SWIPE / DRIFT */
     overflow-x: hidden;
     overscroll-behavior-x: none;
     touch-action: pan-y;
   }
 
   body {
-    @apply bg-[#0b0f19] text-gray-200;
     margin: 0;
     min-width: 320px;
-
-    /* 🔒 LOCK CONTENT TO CENTER (NO LEFT-RIGHT MOVE) */
     overflow-x: hidden;
     overscroll-behavior-x: none;
     touch-action: pan-y;
-
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-      'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: none;
   }
 
-  /* Force dark always */
-  .dark body {
-    @apply bg-[#0b0f19] text-gray-200;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
   }
 
   ::selection {
-    background: rgba(56, 189, 248, 0.3);
+    background: rgba(124, 58, 237, 0.4);
+    color: #fff;
   }
 
-  /* ---------- TYPOGRAPHY SCALE ---------- */
-  h1 {
-    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl;
+  img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
-  h2 {
-    @apply text-2xl sm:text-3xl lg:text-4xl;
-  }
-
-  h3 {
-    @apply text-xl sm:text-2xl;
-  }
-
-  p {
-    @apply text-base sm:text-lg leading-relaxed;
+  .flex, .grid {
+    min-width: 0;
   }
 }
 
-/* =========================
-   CONTAINER FIX (VERY IMPORTANT)
-   ========================= */
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 .container {
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-/* =========================
-   IMAGES & MEDIA (AUTO RESPONSIVE)
-   ========================= */
-img,
-video,
-canvas,
-svg {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* ============================================================
+   SCROLLBAR (thin, styled)
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-violet);
+  border-radius: 9999px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-violet) var(--bg-primary);
 }
 
-/* =========================
-   FLEX & GRID SAFETY
-   ========================= */
-.flex,
-.grid {
-  min-width: 0;
+/* ============================================================
+   GRADIENT TEXT UTILITY
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #06b6d4 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* =========================
-   ANIMATIONS (GPU SAFE)
-   ========================= */
-@keyframes slideUp {
+.gradient-text-warm {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+}
+
+.glass-card-hover {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  transition: all 0.35s ease;
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(124, 58, 237, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15);
+}
+
+/* ============================================================
+   GLOW BUTTON
+   ============================================================ */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #5b21b6, #0891b2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  border-color: rgba(124, 58, 237, 0.8);
+  background: rgba(124, 58, 237, 0.1);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION HEADING
+   ============================================================ */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: var(--accent-cyan);
+}
+
+/* ============================================================
+   ANIMATED GRADIENT BORDER
+   ============================================================ */
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4, #ec4899, #7c3aed);
+  background-size: 300% 300%;
+  animation: gradientShift 6s ease infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes revealUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(32px);
   }
   to {
     opacity: 1;
@@ -110,37 +294,155 @@ svg {
   }
 }
 
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes flipIn {
+  from { opacity: 0; transform: rotateX(-15deg) translateY(20px); }
+  to { opacity: 1; transform: rotateX(0) translateY(0); }
+}
+
+/* Utility classes */
+.animate-revealUp {
+  animation: revealUp 0.7s ease forwards;
+}
 .animate-slideUp {
   animation: slideUp 0.6s ease forwards;
-  will-change: transform, opacity;
+}
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease forwards;
+}
+.animate-floatY {
+  animation: floatY 4s ease-in-out infinite;
+}
+.animate-glowPulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+.animate-rotateRing {
+  animation: rotateRing 8s linear infinite;
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2.5s linear infinite;
 }
 
-/* =========================
-   SCROLLBAR – HIDDEN
-   ========================= */
-::-webkit-scrollbar {
+/* Scroll reveal (JS adds .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   LINK BASE (no default underline crawl)
+   ============================================================ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE / TABLET / DESKTOP
+   ============================================================ */
+
+/* Floating code: hide on mobile/tablet */
+.floating-code {
   display: none;
 }
-
-html {
-  scrollbar-width: none;
+@media (min-width: 900px) {
+  .floating-code { display: block; }
 }
 
-/* =========================
-   LINK UNDERLINE FIX
-   ========================= */
-a {
-  position: relative;
-  white-space: nowrap;
+/* About: stack on mobile */
+.about-grid { grid-template-columns: 1fr !important; }
+@media (min-width: 768px) {
+  .about-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; }
 }
 
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease;
+/* Contact: stack on mobile */
+.contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+@media (min-width: 768px) {
+  .contact-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; gap: 3rem !important; }
 }
+
+/* Cert/Skills grids */
+.cert-grid   { grid-template-columns: 1fr !important; }
+.skills-grid { grid-template-columns: 1fr !important; }
+
+@media (min-width: 500px) {
+  .cert-grid   { grid-template-columns: repeat(2, 1fr) !important; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (min-width: 1024px) {
+  .cert-grid   { grid-template-columns: repeat(3, 1fr) !important; }
+  .skills-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important; }
+}
+
+/* Cert flip-card height: auto on mobile */
+.flip-card-wrap { height: 300px; }
+@media (max-width: 640px) {
+  .flip-card-wrap { height: auto; min-height: 200px; }
+  /* On touch: no transform flip, show back content inline */
+}
+
+/* Touch devices */
+@media (pointer: coarse) {
+  body { cursor: auto !important; }
+}
+
+/* Section padding: reduce on mobile */
+@media (max-width: 640px) {
+  section { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+  .container { padding-left: 1rem; padding-right: 1rem; }
+}
+
+/* Smooth touch scrolling */
+html, body { -webkit-overflow-scrolling: touch; }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
